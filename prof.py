@@ -85,19 +85,25 @@ for i in range(0,1):
                 areas.append(element.text)
             
 
-            
+        web=''    
         try:
             university=driver.find_element_by_tag_name('h2').find_element_by_tag_name('li').text
         except:
             university=''
         try:
-            mail=driver.find_elements_by_class_name('__ListItemAction__')[0].find_element_by_tag_name('a').get_attribute('href')[7:]
+            mail=driver.find_elements_by_class_name('__ListItemAction__')[0].find_element_by_tag_name('a').get_attribute('href')
+            if mail[0:4]=='http':
+                web=mail
+                mail=''
+            else:
+                mail=mail[7:]
         except:
             mail=' '
-        try:
-            web=driver.find_elements_by_class_name('__ListItemAction__')[1].find_element_by_tag_name('a').get_attribute('href')
-        except:
-            web=' '
+        if web=='':
+            try:
+                web=driver.find_elements_by_class_name('__ListItemAction__')[1].find_element_by_tag_name('a').get_attribute('href')
+            except:
+                web=' '
         seperator = ', '
         areastr=seperator.join(areas)
         df1={
