@@ -1,5 +1,5 @@
 # Prof_List
-A python script that gets Professors Name, Field of Interest, E-mail, Website and University and saves it in a csv file using selenium.
+A python script that gets Professors Name, Field of Interest, E-mail, Website and University from https://inspirehep.net/ and saves it in a csv file using selenium.
 
 ## Dependencies
 
