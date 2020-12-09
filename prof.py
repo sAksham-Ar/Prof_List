@@ -5,8 +5,13 @@ from selenium.webdriver.common.by import By
 from time import sleep
 import pandas as pd
 from sys import argv
+from selenium.webdriver.chrome.options import Options
 dict=[]
-driver=webdriver.Chrome(r"C:\Users\aryas\Documents\chromedriver.exe")
+chrome_options=Options()
+chrome_options.add_argument('--headless')
+chrome_options.add_argument('--window-size=1280,800')
+chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36")
+driver=webdriver.Chrome(r"C:\Users\aryas\Documents\chromedriver.exe",options=chrome_options)
 for i in range(0,1): 
     driver.get('https://inspirehep.net/authors?sort=bestmatch&size='+str(argv[2])+'&page=1&q='+str(argv[1]))
     author_links=[]
@@ -22,8 +27,10 @@ for i in range(0,1):
             author_links.append(card.find_element_by_class_name('result-item-title').get_attribute('href'))
         except:
             continue
-
+    j=0
     for author,link in zip(authors,author_links):
+        j=j+1
+        print("Professor:"+str(j))
         areas=[]
         driver.get(link)
         sleep(2)
@@ -103,5 +110,5 @@ for i in range(0,1):
         dict.append(df1)
     
 df=pd.DataFrame(dict)
-df.to_csv('profname.csv', index = True)
-    
+df.to_csv('profname.csv', index = False)
+driver.quit()
