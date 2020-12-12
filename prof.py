@@ -6,12 +6,13 @@ from time import sleep
 import pandas as pd
 from sys import argv
 from selenium.webdriver.chrome.options import Options
+import os
 dict=[]
 chrome_options=Options()
 chrome_options.add_argument('--headless')
 chrome_options.add_argument('--window-size=1280,800')
 chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36")
-driver=webdriver.Chrome(r"C:\Users\aryas\Documents\chromedriver.exe",options=chrome_options)
+driver=webdriver.Chrome(os.getcwd()+r"\chromedriver.exe",options=chrome_options)
 Key = {'astro-ph': "Astrophysics", 'hep-th': "High Energy Physics Theoretical", 'math-ph': "Mathematical Physics", 'quant-ph': "Quantum Physics",
        'gr-qc': "General Relativity and Quantum Cosmology", 'hep-ex': "High Energy Physics Experimental", 'hep-ph': "High Energy Physics Phenomenology",
        'physics': "Physics", 'nucl-th':'Nuclear Theory','hep-lat':'High energy Physics Lattice','nucl-ex':'Nuclear Experiment',
