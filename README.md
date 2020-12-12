@@ -1,6 +1,9 @@
 # Prof_List
 A python script that gets Professors Name, Field of Interest, E-mail, Website and University from https://inspirehep.net/ and saves it in a csv file using selenium.
 
+## Startup Script
+If you already have python3 installed and are on windows with chrome installed you can simply run start.ps1 with powershell which will take care of everything for you.
+
 ## Dependencies
 
 This script requires python3 and selenium installed.Download any version of python3 from <a href="https://www.python.org/downloads/">here.</a>For selenium with python installed just run the following code in powershell or in terminal:
@@ -13,15 +16,8 @@ pip3 install selenium
 
 Firstly,download this script.
 This script will only work if you have chrome.Download chromedriver from <a href="https://chromedriver.chromium.org/downloads">here.</a>
-
-<i>Note:To use it with firefox change ```driver=webdriver.Chrome()``` in line 4 to  ```driver=webdriver.Firefox()``` Then you should download the geckodriver from <a href="https://github.com/mozilla/geckodriver/releases">here.</a>
- </i>
  
- After the download you should put the path of the driver in the file like this:
- 
- ```
- driver=webdriver.Chrome(r"C:\Users\aryas\Documents\chromedriver.exe")
- ```
+ After the download you should put the driver in the folder containing the script.
 
 
 ## Run
